@@ -2,7 +2,7 @@ import sqlite3
 import xml.etree.ElementTree as ET
 
 
-conn = sqlite3.connet('data.sqlite')
+conn = sqlite3.connect('data.sqlite')
 cur = conn.cursor()
 
 cur.execute('SELECT * FROM product')
