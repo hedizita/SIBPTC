@@ -12,6 +12,6 @@ cur.execute('SELECT product.product_id, product.model, product.price, product.st
 rows = cur.fetchall()
 
 for row in rows:
-    print(row)  # Print the row contents for debugging purposes
+    print(row)
 
 conn.close()
