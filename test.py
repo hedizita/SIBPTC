@@ -1,14 +1,14 @@
 import sqlite3
 import xml.etree.ElementTree as ET
 
-
 conn = sqlite3.connect('data.sqlite')
 cur = conn.cursor()
 
 cur.execute('SELECT * FROM product')
-rows = cur.fetchall() #This will return a list of all the rows in the `product` table
+rows = cur.fetchall()
 
-#we need and XML document for each row
+root = ET.Element('feed')
+
 for row in rows:
     prod_id = row[0]
     title = row[1]
@@ -33,5 +33,5 @@ for row in rows:
     root.set('brand', brand)
     root.set('condition', cond)
 
-    tree = ET.ElementTree(root)
-    tree.write('feed.xml')
+tree = ET.ElementTree(root)
+tree.write('feed.xml')
