@@ -1,37 +1,40 @@
 import sqlite3
 import xml.etree.ElementTree as ET
 
-
 conn = sqlite3.connect('data.sqlite')
 cur = conn.cursor()
 
-cur.execute('SELECT * FROM product')
-rows = cur.fetchall() #This will return a list of all the rows in the `product` table
+cur.execute('SELECT product.product_id, product.model, product.price, product.status, '
+            'product_description.name, product_description.description, '
+            '(SELECT product_image.image FROM product_image WHERE product_image.product_id = product.product_id) as image '
+            'FROM product '
+            'JOIN product_description ON product.product_id = product_description.product_id')
+rows = cur.fetchall()
 
-#we need and XML document for each row
+
+root = ET.Element('feed')
+
 for row in rows:
-    prod_id = row[0]
-    title = row[1]
-    desc = row[2]
-    link = row[3]
-    im_link = row[4]
-    add_im_link = row[5]
-    av = row[6]
-    price = row[7]
-    brand = row[8]
-    cond = row[9]
+    prod_id, model, price, status, brand, title, desc, im_link = row  
 
-    root = ET.element('product')
-    root.set('id', prod_id)
-    root.set('title', title)
-    root.set('description', desc)
-    root.set('link', link)
-    root.set('image_link', im_link)
-    root.set('additional_image_link', add_im_link)
-    root.set('availability', av)
-    root.set('price', price)
-    root.set('brand', brand)
-    root.set('condition', cond)
+    prod_el = ET.SubElement(root, 'product')
+
+    ET.SubElement(prod_el, 'id').text = str(prod_id)
+    ET.SubElement(prod_el, 'title').text = title
+    ET.SubElement(prod_el, 'description').text = desc
+    ET.SubElement(prod_el, 'link').text = f'https://butopea.com/p/{prod_id}'
+    ET.SubElement(prod_el, 'image_link').text = im_link
+    ET.SubElement(prod_el, 'additional_image_link').text = ''
+    ET.SubElement(prod_el, 'availability').text = 'in stock' if status == 1 else 'out of stock'
+    ET.SubElement(prod_el, 'price').text = str(price) + ' HUF'
+    ET.SubElement(prod_el, 'brand').text = brand
+    ET.SubElement(prod_el, 'condition').text = 'new'
 
 tree = ET.ElementTree(root)
-tree.write('feed.xml')
+'''tree.write('feed.xml', encoding='utf-8', xml_declaration=True)
+
+conn.close()
+
+print("Feed generated successfully.")'''
+for row in rows:
+    print(row)

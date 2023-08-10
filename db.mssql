@@ -1,0 +1,10 @@
+SELECT 
+    product.product_id,
+    product.model,
+    product.price,
+    product.status,
+    product_description.name,
+    product_description.description,
+    product_image.image
+FROM
+    product;
