@@ -1,2 +1,1 @@
-# SIBPTC
-# 08.10 - start
+#part 1
