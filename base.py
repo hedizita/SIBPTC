@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 conn = sqlite3.connect('data.sqlite')
 cur = conn.cursor()
 
-cur.execute('SELECT * FROM product')
+cur.execute('SELECT * FROM products')
 rows = cur.fetchall() #This will return a list of all the rows in the `product` table
 
 #we need and XML document for each row
