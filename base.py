@@ -33,5 +33,5 @@ for row in rows:
     root.set('brand', brand)
     root.set('condition', cond)
 
-    tree = ET.ElementTree(root)
-    tree.write('feed.xml')
+tree = ET.ElementTree(root)
+tree.write('feed.xml')
