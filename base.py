@@ -13,13 +13,16 @@ rows = cur.fetchall()
 
 
 root = ET.Element('feed')
+root.set('xmlns', 'http://www.w3.org/2005/Atom')
 
 for row in rows:
-    prod_id, model, price, status, brand, title, desc, im_link = row  
+    #print(row)
+    #prod_id, 
+    model, price, status, brand, title, desc, im_link = row  
 
     prod_el = ET.SubElement(root, 'product')
 
-    ET.SubElement(prod_el, 'id').text = str(prod_id)
+    #ET.SubElement(prod_el, 'id').text = str(prod_id)
     ET.SubElement(prod_el, 'title').text = title
     ET.SubElement(prod_el, 'description').text = desc
     ET.SubElement(prod_el, 'link').text = f'https://butopea.com/p/{prod_id}'
@@ -31,10 +34,10 @@ for row in rows:
     ET.SubElement(prod_el, 'condition').text = 'new'
 
 tree = ET.ElementTree(root)
-'''tree.write('feed.xml', encoding='utf-8', xml_declaration=True)
+tree.write('feed.xml', encoding='utf-8', xml_declaration=True)
 
 conn.close()
 
-print("Feed generated successfully.")'''
+print("ok")
 for row in rows:
     print(row)
