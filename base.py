@@ -32,8 +32,8 @@ for row in rows:
     ET.SubElement(prod_el, 'title').text = title.encode('utf-8')
     ET.SubElement(prod_el, 'description').text = desc.encode('utf-8')
     #ET.SubElement(prod_el, 'link').text = f'https://butopea.com/p/{prod_id}'
-    ET.SubElement(prod_el, 'image_link').text = im_link.encode('utf-8')
-    ET.SubElement(prod_el, 'additional_image_link').text = ''.encode('utf-8')
+    ET.SubElement(prod_el, 'image_link').text = im_link
+    ET.SubElement(prod_el, 'additional_image_link').text = ''
     ET.SubElement(prod_el, 'availability').text = 'in stock' if status.encode('utf-8') == 1 else 'out of stock'
     ET.SubElement(prod_el, 'price').text = str(price) + ' HUF'
     ET.SubElement(prod_el, 'brand').text = brand.encode('utf-8')
