@@ -6,20 +6,21 @@ cur = conn.cursor()
 
 cur.execute('SELECT product.product_id, product.model, product.price, product.status, '
             'product_description.name, product_description.description, '
-            'product_description.brand, ' 
             '(SELECT product_image.image FROM product_image WHERE product_image.product_id = product.product_id) as image '
             'FROM product '
-            'JOIN product_description ON product.product_id = product_description.product_id'
-            'JOIN manufacturer.name ON product.product_id = manufacturer.name.product_id')
+            'JOIN product_description ON product.product_id = product_description.product_id')
 rows = cur.fetchall()
+
 
 root = ET.Element('feed')
 root.set('xmlns', 'http://www.w3.org/2005/Atom')
 
 for row in rows:
-    print(row)
+    #print(row)
+    
     #prod_id, 
-    model, price, status, title, desc, brand, im_link = row  
+    model, price, status, brand, title, desc, im_link = row  
+
     prod_el = ET.SubElement(root, 'product')
 
     #ET.SubElement(prod_el, 'id').text = str(prod_id)
@@ -39,3 +40,5 @@ tree.write('feed.xml', encoding='utf-8', xml_declaration=True)
 conn.close()
 
 print("ok")
+for row in rows:
+    print(row)
