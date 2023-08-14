@@ -2,6 +2,7 @@
 This documentation provides instructions for generating an XML product feed from a given SQLite database of products, adhering to the Google Merchant product data specifications. The implementation uses Python and the SQLite database.
 
 **2. Setup**
+
   *Prerequisites* 
 Python (recommended version 3.6+)
 SQLite database file (download link provided in the task)
