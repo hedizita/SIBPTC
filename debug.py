@@ -18,7 +18,8 @@ root.set('xmlns', 'http://www.w3.org/2005/Atom')
 
 for row in rows:
     print(row)
-    prod_id, model, price, status, title, desc, brand, im_link = row  
+    #prod_id, 
+    model, price, status, title, desc, brand, im_link = row  
     prod_el = ET.SubElement(root, 'product')
 
     #ET.SubElement(prod_el, 'id').text = str(prod_id)
