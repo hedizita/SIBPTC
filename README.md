@@ -1,16 +1,3 @@
-# Product Feed Documentation
-
-The feed.xml file contains an XML representation of the product feed, adhering to the Google Merchant product data specifications. 
-Each <product> element corresponds to a product in the database.
-
-`id`: Product ID, 
-`title`: Product title,
-`description`: Product description
-`link`: Link to the product page on your website
-`image_link`: Link to the main product image
-`additional_image_link`: Additional image links (if any)
-`availability`: Product availability status (in stock or out of stock)
-`price`: Product price in Hungarian Forints (HUF)
-`brand`: Product brand/manufacturer
-`condition`: Product condition (new)
+1. Introduction <a to the documentation="introduction"></a>
+This documentation provides instructions for generating an XML product feed from a given SQLite database of products, adhering to the Google Merchant product data specifications. The implementation uses Python and the SQLite database.
 
