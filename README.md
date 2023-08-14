@@ -11,8 +11,11 @@ Python (recommended version 3.6+)
 
 SQLite database file (download link provided in the task)
 
-  *Downloading the Database*
+
+*Downloading the Database*
 Click on the following link to download the SQLite database: data.sqlite
+
+
 Save the downloaded file as data.sqlite in the same directory as the script.
 
 **3. Running the code**
