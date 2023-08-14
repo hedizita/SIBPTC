@@ -34,7 +34,7 @@ for row in rows:
     ET.SubElement(prod_el, 'image_link').text = im_link
     ET.SubElement(prod_el, 'additional_image_link').text = ''
     ET.SubElement(prod_el, 'availability').text = 'in stock' if status.encode('utf-8') == 1 else 'out of stock'
-    ET.SubElement(prod_el, 'price').text = str(price) + ' HUF'
+    ET.SubElement(prod_el, 'price').text = price + ' HUF'
     ET.SubElement(prod_el, 'brand').text = brand.encode('utf-8')
     ET.SubElement(prod_el, 'condition').text = 'new'.encode('utf-8')
 
