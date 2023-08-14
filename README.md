@@ -1,14 +1,14 @@
-1. Introduction
+**1. Introduction**
 This documentation provides instructions for generating an XML product feed from a given SQLite database of products, adhering to the Google Merchant product data specifications. The implementation uses Python and the SQLite database.
 
-3. Setup
-Prerequisites 
-Python (recommended version 3.6+)
-SQLite database file (download link provided in the task)
+**2. Setup**
+#Prerequisites 
+#Python (recommended version 3.6+)
+#SQLite database file (download link provided in the task)
 
-Downloading the Database
-Click on the following link to download the SQLite database: data.sqlite
-Save the downloaded file as data.sqlite in the same directory as the script.
+*Downloading the Database*
+#Click on the following link to download the SQLite database: data.sqlite
+#Save the downloaded file as data.sqlite in the same directory as the script.
 
 3. Running the code
 Clone or download the project repository from GitHub: https://github.com/hedizita/SIBPTC/tree/main 
