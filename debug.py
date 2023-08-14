@@ -21,10 +21,10 @@ for row in rows:
     prod_id, model, price, status, title, desc, brand, im_link = row  
     prod_el = ET.SubElement(root, 'product')
 
-    ET.SubElement(prod_el, 'id').text = str(prod_id)
+    #ET.SubElement(prod_el, 'id').text = str(prod_id)
     ET.SubElement(prod_el, 'title').text = title
     ET.SubElement(prod_el, 'description').text = desc
-    ET.SubElement(prod_el, 'link').text = f'https://butopea.com/p/{prod_id}'
+    #ET.SubElement(prod_el, 'link').text = f'https://butopea.com/p/{prod_id}'
     ET.SubElement(prod_el, 'image_link').text = im_link
     ET.SubElement(prod_el, 'additional_image_link').text = ''
     ET.SubElement(prod_el, 'availability').text = 'in stock' if status == 1 else 'out of stock'
