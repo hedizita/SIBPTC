@@ -19,12 +19,15 @@ root.set('xmlns', 'http://www.w3.org/2005/Atom')
 
 #Iterate through the fetched database rows and create the needed element and fields
 for row in rows:
+    #prod_id,
     model, price, status, brand, title, desc, im_link = row  
 
     prod_el = ET.SubElement(root, 'product')
 
+    #ET.SubElement(prod_el, 'id').text = str(prod_id)
     ET.SubElement(prod_el, 'title').text = title
     ET.SubElement(prod_el, 'description').text = desc
+    #ET.SubElement(prod_el, 'link').text = f'https://butopea.com/p/{prod_id}'
     ET.SubElement(prod_el, 'image_link').text = im_link
     ET.SubElement(prod_el, 'additional_image_link').text = ''
     ET.SubElement(prod_el, 'availability').text = 'in stock' if status == 1 else 'out of stock'
